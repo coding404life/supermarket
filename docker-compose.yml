@@ -1,0 +1,14 @@
+services:
+  app:
+    image: openai-demo-app
+    build:
+      context: ./
+      target: dev
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+      - ~/.yarn-cache:/usr/local/share/.cache/yarn
+    ports:
+      - "3000:3000"
