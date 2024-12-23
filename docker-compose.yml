@@ -9,6 +9,5 @@ services:
       - .:/app
       - /app/node_modules
       - /app/.next
-      - ~/.yarn-cache:/usr/local/share/.cache/yarn
     ports:
       - "3000:3000"
