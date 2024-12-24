@@ -14,11 +14,12 @@ async function fetchProductById(id: string): Promise<Product> {
 }
 
 interface ProductDetailProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({ params }: ProductDetailProps) {
-  const product = await fetchProductById(params.id);
+  const { id } = await params;
+  const product = await fetchProductById(id);
 
   return {
     title: `${product.title} - Buy Now`,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: ProductDetailProps) {
     openGraph: {
       title: product.title,
       description: product.description,
-      url: `product/${params.id}`,
+      url: `product/${id}`,
       images: [
         {
           url: product.images[0],
@@ -40,10 +41,11 @@ export async function generateMetadata({ params }: ProductDetailProps) {
 }
 
 export default async function ProductDetail({ params }: ProductDetailProps) {
-  const product = await fetchProductById(params?.id);
+  const { id } = await params;
+  const product = await fetchProductById(id);
   const breadcrumbItems = [
     { label: "Home", href: "/" },
-    { label: product.title, href: `/product/${params?.id}` },
+    { label: product.title, href: `/product/${id}` },
   ];
 
   return (
@@ -62,11 +64,11 @@ export default async function ProductDetail({ params }: ProductDetailProps) {
         </div>
 
         <h1 className="text-2xl font-semibold mt-4">{product.title}</h1>
+        <p className="mt-4">{product.description}</p>
         <p className="text-gray-600 mt-2">Brand: {product.brand}</p>
         <p className="text-gray-600 mt-2">Category: {product.category}</p>
         <p className="text-gray-600 mt-2">Rating: {product.rating} ⭐</p>
         <p className="text-gray-800 font-semibold mt-4">${product.price}</p>
-        <p className="mt-4">{product.description}</p>
       </div>
     </div>
   );
