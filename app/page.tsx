@@ -53,6 +53,9 @@ export default function ProductListing() {
               className="w-full h-40 object-cover rounded"
             />
             <h2 className="text-lg font-semibold mt-2">{product.title}</h2>
+            <p className="mt-4">
+              {`${product.description.split(" ").slice(0, 10).join(" ")}...`}
+            </p>
             <p className="text-gray-600">${product.price}</p>
             <Link
               href={`/product/${product.id}`}
