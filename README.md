@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with latest [`creat
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/sales-project.git
+   git clone https://github.com/coding404life/supermarket.git
    cd sales-project
    ```
 
