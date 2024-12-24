@@ -10,10 +10,6 @@ interface BreadcrumbsProps {
 }
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
-  items.map((item, index) => {
-    console.log(items.length - 1);
-    console.log(index);
-  });
   return (
     <nav className="text-sm text-gray-600 mb-4" aria-label="breadcrumb">
       <ol className="flex space-x-2">
