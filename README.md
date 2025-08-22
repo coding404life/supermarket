@@ -49,11 +49,4 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with latest [`creat
 - Assumed that product details page should have the meta data for each product
 - The API endpoint `https://dummyjson.com/products` is assumed to be stable and reliable for fetching product data.
 
-## Time Spent on the Task
 
-- **Project Setup:** 2 hour
-- **Implementing Features:** 3 hours
-- **Writing Tests:** 1 hours
-- **Documentation and Cleanup:** 1 hour
-
-Total time spent: **7 hours**
